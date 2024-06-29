@@ -34,8 +34,7 @@
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close-popup" id="close-popup">&times;</span>
-    <%= button_to "Importar Dados", "#", id: "importar_dados_btn", class: "popup-btn", remote: true,disabled: false %>
-
+    <button id="importar_dados_btn" class="popup-btn">Importar Dados</button>
 
     <%= button_to "Editar Templates", method: :get, class: "popup-btn", disabled: true %>
 
@@ -48,9 +47,24 @@
 <div id="popup-upload" class="popup">
   <div class="popup-content">
     <span class="close-popup" id="close-popup-upload">&times;</span>
-    <%= form_tag importar_dados_path, multipart: true, remote: true do %>
-      <%= file_field_tag :file, multiple: true %>
-      <%= submit_tag "Enviar Arquivo", class: "popup-btn" %>
+    <%= form_tag importar_dados_path, multipart: true, remote: true, id: "upload_form" do %>
+      <div class="file-input-container">
+        <h3>Disciplinas</h3>
+        <div class="file-input">
+          <%= label_tag "file_input_disciplinas", "Selecionar Arquivo" %>
+          <%= file_field_tag :file_disciplinas, id: "file_input_disciplinas", onchange: "validateFileType(this)" %>
+          <span id="file_name_disciplinas" class="file-name">Nenhum arquivo selecionado</span>
+        </div>
+      </div>
+      <div class="file-input-container">
+        <h3>Membros</h3>
+        <div class="file-input">
+          <%= label_tag "file_input_membros", "Selecionar Arquivo" %>
+          <%= file_field_tag :file_membros, id: "file_input_membros", onchange: "validateFileType(this)" %>
+          <span id="file_name_membros" class="file-name">Nenhum arquivo selecionado</span>
+        </div>
+      </div>
+      <%= submit_tag "Enviar Arquivos", class: "popup-btn", disabled: true %>
     <% end %>
   </div>
 </div>
@@ -59,5 +73,6 @@
 <button href="<%= criar_templete_path %>" class="botao-criar-templete">Criar Template</button>
 
 <%= javascript_include_tag 'main' %> <!-- Importa o arquivo de script -->
+
 </body>
 </html>
