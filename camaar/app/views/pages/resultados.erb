@@ -1,32 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento resultados</title>
   </head>
   <body>
-    <header>
-      <div class="menu">
-        <span class="menu-icon" id="menu-icon">&#9776;</span>
-        <span class="title" id="title"></span>
-      </div>
-
-      <div class="pesquisar-profile">
-        <%= image_tag 'lupa_pesquisa.svg', class: 'lupa', id: 'Pesquisar' %>
-        <input type="text" id="campo_pesquisar" name="campo_de_pesquisar">
-      </div>
-
-      <div class="user-icon">
-        <%= image_tag 'user_img.svg', class: 'img_user', id: 'Img_user' %>
-      </div>
-    </header>
-
-    <div id="sidebar" class="sidebar">
-      <a href="#" class="closebtn" id="closebtn">&times;</a>
-      <%= link_to "Avaliações", "#", id: "avaliacoes-btn" %>
-      <%= link_to "Gerenciamento", "#", id: "gerenciamento-btn" %>
-    </div>
+    <%= render 'layouts/header' %>
 
     <%# TODO: POPULAR CADA ELEMENTO BASEADO NOS DADOS DA TABELA (AGUARDANDO DEFINIÇÃO DE UM SCHEMA PARA DADOS DE UM TEMPLATE NOME DA MATÉRIA SEMESTRE ETC.) %>
     <div class="cards-container">
@@ -48,9 +29,6 @@
         </div>
       </div>
     </div>
-
-
-
   </body>
 </html>
 <%= javascript_include_tag('resultados.js') %>

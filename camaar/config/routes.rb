@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/resultados', to: 'pages#resultados', as: 'page_resultados'
+  get '/avaliacoes', to: 'pages#avaliacoes', as: 'page_avaliacoes'
+  get '/avaliacoes/:id', to: 'pages#questionarios', as: 'page_questionario'
 end

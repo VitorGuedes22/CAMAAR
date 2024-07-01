@@ -46,4 +46,15 @@ class PagesController < ApplicationController
   def resultados
     @valor = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   end
+
+  def avaliacoes
+  end
+
+  def questionarios
+    @pergunta = "Pergunta"
+    @materia = params[:materia]
+    @semestre = params[:semestre]
+
+    @text_pergunta = "Pergunta"
+  end
 end
