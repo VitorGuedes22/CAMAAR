@@ -64,11 +64,12 @@
           <span id="file_name_membros" class="file-name">Nenhum arquivo selecionado</span>
         </div>
       </div>
-      <%= submit_tag "Enviar Arquivos", class: "popup-btn", disabled: true %>
-    <% end %>
+      <div class="file-input-container">
+        <%= submit_tag "Enviar Arquivos", class: "popup-btn", disabled: true %>
+      <% end %>
+      </div>
   </div>
 </div>
-
 
 <button href="<%= criar_templete_path %>" class="botao-criar-templete">Criar Template</button>
 

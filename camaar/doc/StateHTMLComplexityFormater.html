@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class StateHTMLComplexityFormater - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ParseStateFormater.html">ParseStateFormater</a>
+</div>
+
+    
+<div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+    <li><a class="include" href="HTMLStyleSheet.html">HTMLStyleSheet</a>
+  </ul>
+</div>
+
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-def_compute_state">#def_compute_state</a>
+    <li ><a href="#method-i-end">#end</a>
+    <li ><a href="#method-i-end_class_compute_state">#end_class_compute_state</a>
+    <li ><a href="#method-i-start">#start</a>
+    <li ><a href="#method-i-start_class_compute_state">#start_class_compute_state</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-StateHTMLComplexityFormater">
+  <h1 id="class-StateHTMLComplexityFormater" class="class">
+    class StateHTMLComplexityFormater
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-def_compute_state" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">def_compute_state</span><span
+              class="method-args">(name, complexity, lines)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="def_compute_state-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/state_html_complexity_formatter.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">def_compute_state</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">complexity</span>, <span class="ruby-identifier">lines</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@filter</span>.<span class="ruby-identifier">ignore?</span>(<span class="ruby-identifier">complexity</span>)
+  <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">warn_error?</span>(<span class="ruby-identifier">complexity</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;&lt;tr&gt;&lt;td&gt;#{name}&lt;/td&gt;&lt;td#{klass}&gt;#{complexity}&lt;/td&gt;&lt;td&gt;#{lines}&lt;/td&gt;&lt;/tr&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">end</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="end-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/state_html_complexity_formatter.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier ruby-title">puts</span> <span class="ruby-string">&quot;&lt;/body&gt;&quot;</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&lt;/html&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-end_class_compute_state" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">end_class_compute_state</span><span
+              class="method-args">(name)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="end_class_compute_state-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/state_html_complexity_formatter.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_class_compute_state</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&lt;/table&gt;&quot;</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&lt;/div&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">start</span><span
+              class="method-args">(new_out=nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/state_html_complexity_formatter.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start</span>(<span class="ruby-identifier">new_out</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">reset_data</span>
+  <span class="ruby-ivar">@out</span> = <span class="ruby-identifier">new_out</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_out</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;Cyclometric Complexity&lt;/title&gt;&lt;/head&gt;&quot;</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">style_sheet</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&lt;body&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_class_compute_state" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">start_class_compute_state</span><span
+              class="method-args">(type_name,name,complexity,lines)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="start_class_compute_state-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/state_html_complexity_formatter.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_class_compute_state</span>(<span class="ruby-identifier">type_name</span>,<span class="ruby-identifier">name</span>,<span class="ruby-identifier">complexity</span>,<span class="ruby-identifier">lines</span>)
+  <span class="ruby-ivar">@current</span> = <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&lt;div class=\&quot;class_complexity\&quot;&gt;&quot;</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;&lt;h2 class=\&quot;class_name\&quot;&gt;#{type_name} : #{name}&lt;/h2&gt;&quot;</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;&lt;div class=\&quot;class_total_complexity\&quot;&gt;Total Complexity: #{complexity}&lt;/div&gt;&quot;</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;&lt;div class=\&quot;class_total_lines\&quot;&gt;Total Lines: #{lines}&lt;/div&gt;&quot;</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&lt;table width=\&quot;100%\&quot; border=\&quot;1\&quot;&gt;&quot;</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&lt;tr&gt;&lt;th&gt;Method&lt;/th&gt;&lt;th&gt;Complexity&lt;/th&gt;&lt;th&gt;# Lines&lt;/th&gt;&lt;/tr&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.7.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

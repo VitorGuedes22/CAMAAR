@@ -1,11 +1,36 @@
-# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   def importar_dados
-    params[:files].each do |file|
-      json_data = JSON.parse(file.read)
-      process_json_data(json_data)
+    @membros = params[:file_membros]
+    if @membros
+      begin
+        users_before_import = User.count
+
+        # Verifique se @membros é um único arquivo ou uma lista de arquivos
+        if @membros.is_a?(Array)
+          @membros.each do |file|
+            json_data = JSON.parse(file.read)
+            process_json_data(json_data)
+          end
+        else
+          # Se for apenas um único arquivo
+          json_data = JSON.parse(@membros.read)
+          process_json_data(json_data)
+        end
+
+        users_after_import = User.count
+        new_users_count = users_after_import - users_before_import
+
+        if new_users_count > 0
+          flash[:success] = "Membros foram importados com sucesso. Total de novos usuários: #{new_users_count}."
+        else
+          flash[:error] = "Nenhum novo usuário foi importado."
+        end
+      rescue => e
+        flash[:error] = "Houve um erro ao importar os membros: #{e.message}"
+      end
+    else
+      flash[:error] = "Nenhum arquivo foi selecionado."
     end
-    redirect_to root_path, notice: 'Dados importados com sucesso!'
   end
 
   private

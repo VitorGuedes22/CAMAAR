@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class SaikuroCMDLineRunner - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="Object.html">Object</a>
+</div>
+
+    
+<div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+    <li><a class="include" href="ResultIndexGenerator.html">ResultIndexGenerator</a>
+  </ul>
+</div>
+
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-c-new">::new</a>
+    <li ><a href="#method-i-analyze">#analyze</a>
+    <li ><a href="#method-i-get_ruby_files">#get_ruby_files</a>
+    <li ><a href="#method-i-no_complexity_token_or_state-3F">#no_complexity_token_or_state?</a>
+    <li ><a href="#method-i-parse_opts">#parse_opts</a>
+    <li ><a href="#method-i-run">#run</a>
+    <li ><a href="#method-i-set_formatters">#set_formatters</a>
+    <li ><a href="#method-i-usage">#usage</a>
+    <li ><a href="#method-i-write_results">#write_results</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-SaikuroCMDLineRunner">
+  <h1 id="class-SaikuroCMDLineRunner" class="class">
+    class SaikuroCMDLineRunner
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      <div id="attribute-i-comp_state" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">comp_state</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-comp_token" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">comp_token</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-formater" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">formater</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-output_dir" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">output_dir</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-state_formater" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">state_formater</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+      <div id="attribute-i-token_count_formater" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">token_count_formater</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        </div>
+      </div>
+    </section>
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-ivar">@opt</span> = <span class="ruby-constant">GetoptLong</span>.<span class="ruby-identifier">new</span>(
+                       [<span class="ruby-string">&quot;-o&quot;</span>,<span class="ruby-string">&quot;--output_directory&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-h&quot;</span>,<span class="ruby-string">&quot;--help&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">NO_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-f&quot;</span>,<span class="ruby-string">&quot;--formater&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-c&quot;</span>,<span class="ruby-string">&quot;--cyclo&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">NO_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-t&quot;</span>,<span class="ruby-string">&quot;--token&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">NO_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-y&quot;</span>,<span class="ruby-string">&quot;--filter_cyclo&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-k&quot;</span>,<span class="ruby-string">&quot;--filter_token&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-w&quot;</span>,<span class="ruby-string">&quot;--warn_cyclo&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-s&quot;</span>,<span class="ruby-string">&quot;--warn_token&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-e&quot;</span>,<span class="ruby-string">&quot;--error_cyclo&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-d&quot;</span>,<span class="ruby-string">&quot;--error_token&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-p&quot;</span>,<span class="ruby-string">&quot;--parse_file&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-i&quot;</span>,<span class="ruby-string">&quot;--input_directory&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">REQUIRED_ARGUMENT</span>],
+                       [<span class="ruby-string">&quot;-v&quot;</span>,<span class="ruby-string">&quot;--verbose&quot;</span>, <span class="ruby-constant">GetoptLong</span><span class="ruby-operator">::</span><span class="ruby-constant">NO_ARGUMENT</span>]
+                       )
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output_dir</span> = <span class="ruby-string">&quot;./&quot;</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">formater</span> = <span class="ruby-string">&quot;html&quot;</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">comp_state</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">comp_token</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-analyze" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">analyze</span><span
+              class="method-args">(files)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="analyze-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">analyze</span>(<span class="ruby-identifier">files</span>)
+  <span class="ruby-constant">Saikuro</span>.<span class="ruby-identifier">analyze</span>(<span class="ruby-identifier">files</span>,
+    <span class="ruby-identifier">state_formater</span>,
+    <span class="ruby-identifier">token_count_formater</span>,
+    <span class="ruby-identifier">output_dir</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-get_ruby_files" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">get_ruby_files</span><span
+              class="method-args">(path)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="get_ruby_files-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_ruby_files</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">files</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">f</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/rb$/</span>
+        <span class="ruby-identifier">files</span><span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">f</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">files</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-no_complexity_token_or_state-3F" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">no_complexity_token_or_state?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="no_complexity_token_or_state-3F-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">no_complexity_token_or_state?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">comp_state</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">comp_token</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-parse_opts" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">parse_opts</span><span
+              class="method-args">(state_filter, token_filter, files)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="parse_opts-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_opts</span>(<span class="ruby-identifier">state_filter</span>, <span class="ruby-identifier">token_filter</span>, <span class="ruby-identifier">files</span>)
+  <span class="ruby-ivar">@opt</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span>,<span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">arg</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-o&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output_dir</span> = <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-h&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">usage</span>(<span class="ruby-string">&#39;help&#39;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-f&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">formater</span> = <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-c&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">comp_state</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-t&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">comp_token</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-k&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">token_filter</span>.<span class="ruby-identifier">limit</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-s&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">token_filter</span>.<span class="ruby-identifier">warn</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-d&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">token_filter</span>.<span class="ruby-identifier">error</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-y&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">state_filter</span>.<span class="ruby-identifier">limit</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-w&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">state_filter</span>.<span class="ruby-identifier">warn</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-e&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">state_filter</span>.<span class="ruby-identifier">error</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-p&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">files</span><span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-i&quot;</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">files</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">get_ruby_files</span>(<span class="ruby-identifier">val</span>))
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;-v&quot;</span>
+      <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Verbose mode on&quot;</span>
+      <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">usage</span>(<span class="ruby-string">&#39;no complexity token or state set&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">no_complexity_token_or_state?</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">err</span>
+  <span class="ruby-identifier">usage</span>([<span class="ruby-identifier">err</span>.<span class="ruby-identifier">class</span>,<span class="ruby-identifier">err</span>.<span class="ruby-identifier">message</span>,<span class="ruby-identifier">err</span>.<span class="ruby-identifier">backtrace</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">15</span>]].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-run" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">run</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>
+  <span class="ruby-identifier">files</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">state_filter</span> = <span class="ruby-constant">Filter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">5</span>)
+  <span class="ruby-identifier">token_filter</span> = <span class="ruby-constant">Filter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">10</span>, <span class="ruby-value">25</span>, <span class="ruby-value">50</span>)
+
+  <span class="ruby-identifier">parse_opts</span>(<span class="ruby-identifier">state_filter</span>, <span class="ruby-identifier">token_filter</span>, <span class="ruby-identifier">files</span>)
+  <span class="ruby-identifier">set_formatters</span>(<span class="ruby-identifier">state_filter</span>, <span class="ruby-identifier">token_filter</span>)
+
+  <span class="ruby-identifier">idx_states</span>, <span class="ruby-identifier">idx_tokens</span> = <span class="ruby-identifier">analyze</span>(<span class="ruby-identifier">files</span>)
+  <span class="ruby-identifier">write_results</span>(<span class="ruby-identifier">idx_states</span>, <span class="ruby-identifier">idx_tokens</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-set_formatters" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">set_formatters</span><span
+              class="method-args">(state_filter, token_filter)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="set_formatters-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_formatters</span>(<span class="ruby-identifier">state_filter</span>, <span class="ruby-identifier">token_filter</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">formater</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/html/i</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">state_formater</span> = <span class="ruby-constant">StateHTMLComplexityFormater</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>,<span class="ruby-identifier">state_filter</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">token_count_formater</span> = <span class="ruby-constant">HTMLTokenCounterFormater</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>,<span class="ruby-identifier">token_filter</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">state_formater</span> = <span class="ruby-constant">ParseStateFormater</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>,<span class="ruby-identifier">state_filter</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">token_count_formater</span> = <span class="ruby-constant">TokenCounterFormater</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>,<span class="ruby-identifier">token_filter</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">state_formater</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">comp_state</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">token_count_formater</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">comp_token</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-usage" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">usage</span><span
+              class="method-args">(message)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="usage-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 95</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">usage</span>(<span class="ruby-identifier">message</span>)
+<span class="ruby-identifier">usage</span> = <span class="ruby-identifier">&lt;&lt;-USAGE</span>
+<span class="ruby-value">== Usage
+
+saikuro [ -h ] [-o output_directory] [-f type] [ -c, -t ]
+[ -y, -w, -e, -k, -s, -d - number ] ( -p file | -i directory )
+
+== Help
+
+-o, --output_directory (directory) : A directory to ouput the results in.
+The current directory is used if this option is not passed.
+
+-h, --help : This help message.
+
+-f, --formater (html | text) : The format to output the results in.
+The default is html
+
+-c, --cyclo : Compute the cyclomatic complexity of the input.
+
+-t, --token : Count the number of tokens per line of the input.
+
+-y, --filter_cyclo (number) : Filter the output to only include methods
+whose cyclomatic complexity are greater than the passed number.
+
+-w, --warn_cyclo (number) : Highlight with a warning methods whose
+cyclomatic complexity are greather than or equal to the passed number.
+
+
+-e, --error_cyclo (number) : Highligh with an error methods whose
+cyclomatic complexity are greather than or equal to the passed number.
+
+
+-k, --filter_token (number) : Filter the output to only include lines
+whose token count are greater than the passed number.
+
+
+-s, --warn_token (number) : Highlight with a warning lines whose
+token count are greater than or equal to the passed number.
+
+
+-d, --error_token (number) : Highlight with an error lines whose
+token count are greater than or equal to the passed number.
+
+
+-p, --parse_file (file) : A file to use as input.
+
+-i, --input_directory (directory) : All ruby files found recursively
+inside the directory are passed as input.
+</span><span class="ruby-identifier">USAGE</span>
+  <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">usage</span>
+  <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">puts</span>
+  <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">message</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-write_results" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">write_results</span><span
+              class="method-args">(idx_states, idx_tokens)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="write_results-source">
+            <pre><span class="ruby-comment"># File Saikuro/lib/saikuro/saikuro_cmd_line_runner.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write_results</span>(<span class="ruby-identifier">idx_states</span>, <span class="ruby-identifier">idx_tokens</span>)
+  <span class="ruby-identifier">write_cyclo_index</span>(<span class="ruby-identifier">idx_states</span>, <span class="ruby-identifier">output_dir</span>)
+  <span class="ruby-identifier">write_token_index</span>(<span class="ruby-identifier">idx_tokens</span>, <span class="ruby-identifier">output_dir</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.7.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
