@@ -44,14 +44,20 @@ class PagesController < ApplicationController
   end
 
   def resultados
+    @breadcrumb = "Gerenciamento - Resultados"
+
     @valor = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   end
 
   def avaliacoes
+    @breadcrumb = 'Avaliação'
+
     @valor = [1,2,3,4,5,6,7,8,9,10]
   end
 
   def questionarios
+    @breadcrumb = "Avaliação - Nome da Matéria - Semestre"
+
     @pergunta = "Pergunta"
     @materia = params[:materia]
     @semestre = params[:semestre]
