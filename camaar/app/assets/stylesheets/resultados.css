@@ -30,6 +30,11 @@
 
 .info-professor {
     margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.info-materia h3 {
+    font-weight: 600;
 }
 
 .modal {
