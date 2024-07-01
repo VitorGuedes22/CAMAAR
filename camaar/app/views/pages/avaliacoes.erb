@@ -23,7 +23,8 @@
       </div>
     </header>
     <div class="cards-container">
-        <div id="card-0" onclick=location.href=''>
+      <% @valor.each do %>
+        <div class="card-template" id="card-0" onclick=location.href='avaliacoes/1'>
           <div class="info-materia">
             <h3>Nome da matéria</h3>
             <p>semestre</p>
@@ -32,6 +33,7 @@
             <h3>Professor</h3>
           </div>
         </div>
+      <% end %>
     </div>
   </body>
 </html>
