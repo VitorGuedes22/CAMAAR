@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAAMAR</title>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+
+    <div class="bg-cammar flex justify-center items-center h-dvh">
+      <div class="bg-slate-100 shadow-lg w-1/4 h-4/5 flex flex-col gap-4 items-center justify-center p-10 rounded-lg mb-10">
+        <button class="w-4/5 bg-green-500 hover:bg-green-600 rounded-lg">Importar dados</button>
+        <a class="w-4/5" href="/gerenciamento/templates"><button class="w-full bg-green-500 hover:bg-green-600 rounded-lg">Editar templates</button></a>
+        <button class="w-4/5 bg-green-500 hover:bg-green-600 rounded-lg" id="button-gerenciamento-modal-open">Enviar Formulários</button>
+        <a class="w-4/5" href="/gerenciamento/resultados"><button class="w-full bg-green-500 hover:bg-green-600 rounded-lg">Resultados</button></a>
+      </div>
+    </div>
+
+    <dialog class="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/5 h-3/5 shadow-2xl" id='modal-gerenciamento-form'>
+      <div class="flex justify-center h-full">
+        <form class="w-3/5 flex flex-col items-center justify-around" method="dialog">
+          <div class="flex items-center w-1/2 gap-5">
+            <label for="modal-template">Template: </label>
+            <select id="modal-template" class="rounded-lg">
+              <option value="" selected>Selecione o template</option>
+            </select>
+          </div>
+          <div class="w-11/12 h-1/2 overflow-y-scroll overflow-x-hidden">
+            <table class="m-6 bg-white w-full">
+              <tr class="text-gray-500">
+                <th></th>
+                <th class="w-1/2 text-left">Nome</th>
+                <th class="w-1/4">Semestre</th>
+                <th class="w-1/4">Código</th>
+              </tr>
+              <tr class="border-t-2">
+                <td class="p-3 pr-2"><input type="checkbox"></td>
+                <td class="p-3 pl-0">Matéria</td>
+                <td class="p-3 text-center">2024.1</td>
+                <td class="p-3 text-center">CIC001</td>
+              </tr>
+            </table>
+          </div>
+          <button class="bg-green-500 hover:bg-green-600 rounded-full px-9">Enviar</button>
+        </form>
+      </div>
+    </dialog>
+    <%= javascript_include_tag('gerenciamento.js') %>
+  </body>
+</html>

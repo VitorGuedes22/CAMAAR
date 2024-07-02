@@ -64,4 +64,8 @@ class PagesController < ApplicationController
 
     @text_pergunta = "Pergunta"
   end
+
+  def gerenciamento
+    @breadcrumb = "Gerenciamento"
+  end
 end
