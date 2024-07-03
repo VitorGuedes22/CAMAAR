@@ -63,50 +63,23 @@ class PagesController < ApplicationController
   def importar_dados
     @membros = params[:file_membros]
     @disciplinas = params[:file_disciplinas]
-    if !@membros and !@disciplinas
+
+    if !@membros && !@disciplinas
       flash[:error] = "Nenhum arquivo foi selecionado."
-    end
-    if @membros
+    else
       begin
-        users_before_import = User.count
-
-        # Verifique se @membros é um único arquivo ou uma lista de arquivos
-        if @membros.is_a?(Array)
-          @membros.each do |file|
-            json_data = JSON.parse(file.read)
-            process_json_data(json_data)
-          end
-        else
-          # Se for apenas um único arquivo
-          json_data = JSON.parse(@membros.read)
-          process_json_data(json_data)
+        if @membros
+          process_files(@membros, method(:process_json_data))
         end
 
-        users_after_import = User.count
-        new_users_count = users_after_import - users_before_import
-
-        if new_users_count > 0
-          flash[:success] = "Membros foram importados com sucesso. Total de novos usuários: #{new_users_count}."
-        else
-          flash[:error] = "Nenhum novo usuário foi importado."
+        if @disciplinas
+          process_files(@disciplinas, method(:process_class_data))
         end
+
+        flash[:success] = "Arquivos importados com sucesso."
       rescue => e
-        flash[:error] = "Houve um erro ao importar os membros: #{e.message}"
+        flash[:error] = "Houve um erro ao importar os dados: #{e.message}"
       end
-
-      if @disciplinas
-        if @disciplinas.is_a?(Array)
-          @disciplinas.each do |file|
-            json_data = JSON.parse(file.read)
-            process_json_data(json_data)
-          end
-        else
-          # Se for apenas um único arquivo
-          json_data = JSON.parse(@disciplinas.read)
-          process_json_data(json_data)
-        end
-      end
-
     end
 
     respond_to do |format|
@@ -117,25 +90,27 @@ class PagesController < ApplicationController
 
   private
 
+  def process_files(files, process_method)
+    if files.is_a?(Array)
+      files.each do |file|
+        json_data = JSON.parse(file.read)
+        process_method.call(json_data)
+      end
+    else
+      json_data = JSON.parse(files.read)
+      process_method.call(json_data)
+    end
+  end
+
   def process_json_data(data)
     data.each do |entry|
       docente = entry['docente']
       dicente = entry['dicente']
 
-      if docente
-        # Processa o docente
-        process_user(docente)
-
-      elsif dicente
-        # Processa os dicentes
-        dicente.each { |d| process_user(d) }
-      else
-        entry.each {|disciplina| process_class(disciplina)}
-
-      end
+      process_user(docente) if docente
+      dicente.each { |d| process_user(d) } if dicente
     end
   end
-
 
   def process_user(user_data)
     user = User.find_or_initialize_by(usuario: user_data['usuario'])
@@ -152,11 +127,19 @@ class PagesController < ApplicationController
     user.save!
   end
 
-  def process_class(class_data)
-    class_name = Class.find_or_initialize_by(code:class_data['code'])
-    class_name.assign_attributes(
-
-    )
-    class_name.save!
+  def process_class_data(data)
+    data.each do |class_entry|
+      class_info = class_entry['class']
+      course_class = CourseClass.find_or_initialize_by(code: class_entry['code'])
+      course_class.assign_attributes(
+        code: class_entry['code'],
+        name: class_entry['name'],
+        classCode: class_info['classCode'],
+        semester: class_info['semester'],
+        time: class_info['time']
+      )
+      course_class.save!
+    end
   end
+
 end
