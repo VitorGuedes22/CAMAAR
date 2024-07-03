@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :classes
   root 'pages#login'
 
   get 'home', to: 'pages#home', as: 'home'
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   post 'teste_definir_senha', to: 'teste#definir_senha'
 
   # Rota para lidar com a importação de dados
-  post '/importar_dados', to: 'users#importar_dados', as: 'importar_dados'
+  post '/importar_dados', to: 'pages#importar_dados', as: 'importar_dados'
 
   post 'verify_user', to: 'sessions#verify_user', as: 'verify_user'
 

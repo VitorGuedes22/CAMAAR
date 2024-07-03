@@ -120,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Condições para habilitar botões
     btnImportar.onclick = function() {
-        console.log("Botão de Importar Dados clicado");
-        alert("Botão de Importar Dados clicado");
+        //console.log("Botão de Importar Dados clicado");
+        //alert("Botão de Importar Dados clicado");
         popupUpload.style.display = "block"; // Abre o popup de upload
     };
 

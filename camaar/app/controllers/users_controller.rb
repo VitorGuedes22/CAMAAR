@@ -1,3 +1,4 @@
+# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   def importar_dados
     @membros = params[:file_membros]
@@ -31,6 +32,11 @@ class UsersController < ApplicationController
     else
       flash[:error] = "Nenhum arquivo foi selecionado."
     end
+
+    respond_to do |format|
+      format.html { redirect_to users_path }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("popup-upload", partial: "shared/flash_messages") }
+    end
   end
 
   private
@@ -49,14 +55,17 @@ class UsersController < ApplicationController
   end
 
   def process_user(user_data)
-    User.create!(
+    user = User.find_or_initialize_by(usuario: user_data['usuario'])
+    user.assign_attributes(
       nome: user_data['nome'],
       curso: user_data['curso'],
       matricula: user_data['matricula'],
-      usuario: user_data['usuario'],
       formacao: user_data['formacao'],
       ocupacao: user_data['ocupacao'],
-      email: user_data['email']
+      email: user_data['email'],
+      senha: "a",
+      password: "a"
     )
+    user.save!
   end
 end
