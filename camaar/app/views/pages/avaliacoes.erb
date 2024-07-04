@@ -11,15 +11,17 @@
 
     <div class="cards-container">
       <% @valor.each do %>
-        <div class="card-template" id="card-0" onclick=location.href='1'>
-          <div class="info-materia">
-            <h3>Nome da matéria</h3>
-            <p>semestre</p>
+        <a href="/avaliacoes/1">
+          <div class="card-template p-2" id="card-0">
+            <div class="info-materia">
+              <h3>Nome da matéria</h3>
+              <p>semestre</p>
+            </div>
+            <div class="info-professor">
+              <h3>Professor</h3>
+            </div>
           </div>
-          <div class="info-professor">
-            <h3>Professor</h3>
-          </div>
-        </div>
+        </a>
       <% end %>
     </div>
   </body>
