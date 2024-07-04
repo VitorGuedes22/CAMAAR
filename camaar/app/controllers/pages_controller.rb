@@ -60,6 +60,11 @@ class PagesController < ApplicationController
     @breadcrumb = "Gerenciamento"
   end
 
+  def templates
+    @breadcrumb = "Gerenciamento - Templates"
+    @valor = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+  end
+
 
   def importar_dados
     @membros = params[:file_membros]

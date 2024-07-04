@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>CAAMAR</title>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="flex flex-wrap gap-5 p-5">
+      <div id="templates-add-template" class="bg-white w-2/12 rounded-lg flex p-5 items-center justify-center hover:cursor-pointer">
+        <i class="fa-solid fa-plus fa-2xl"></i>
+      </div>
+
+      <% @valor.each do %>
+        <div class="bg-white w-2/12 rounded-lg flex p-5 gap-4 justify-between">
+          <div class="hover:cursor-pointer">
+            <h3 class="font-semibold">Template 1</h3>
+            <p>semestre</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-pen-to-square pr-3 hover:cursor-pointer"></i>
+            <i class="fa-solid fa-trash-can hover:cursor-pointer"></i>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <dialog id="modal-templates" class="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4/5 w-2/5 p-5">
+      <form class="p-5 flex flex-col h-full justify-between gap-5">
+        <label class=>Nome do template: <input class="w-3/4 border-0 border-b border-black" type="text" placeholder="Digite o nome do template"></label>
+
+        <div class="flex flex-col items-center gap-5">
+          <div class="w-4/5">
+            <h3 class="font-semibold">Questão</h3>
+            <label class="flex w-full items-center"> <span class="w-20">Tipo:</span> <select class="w-1/2 rounded-xl"> <option>Radio</option> <option>Texto</option> </select> </label>
+            <label class="flex w-full items-center"><span class="w-20">Texto:</span><input class="w-3/4 border-0 border-b border-black" type="text"/></label>
+            <div>
+              <label class="flex w-full items-center"><span class="w-20">Opções:</span> <input class="w-3/4 border-0 border-b border-black" type="text"/></label>
+            </div>
+            <div class="flex justify-center">
+              <button class="bg-gray-500 rounded-full w-1/12 h-8 flex justify-center align-center"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="w-4/5">
+            <h3 class="font-semibold">Questão</h3>
+            <label class="flex w-full items-center"><span class="w-20">Tipo:</span><select class="w-1/2 rounded-xl"> <option>Radio</option> <option>Texto</option> </select> </label>
+            <label class="flex w-full items-center"><span class="w-20">Texto:</span> <input class="w-3/4 border-0 border-b border-black" type="text"/></label>
+          </div>
+          <div class="w-4/5">
+            <h3 class="font-semibold">Questão</h3>
+            <label class="flex w-full items-center"><span class="w-20">Tipo:</span><select class="w-1/2 rounded-xl"> <option>Radio</option> <option>Texto</option> </select> </label>
+            <label class="flex w-full items-center"><span class="w-20">Texto:</span> <input class="w-3/4 border-0 border-b border-black" type="text"/></label>
+          </div>
+          <div class="w-4/5">
+            <h3 class="font-semibold">Questão</h3>
+            <label class="flex w-full items-center"><span class="w-20">Tipo:</span><select class="w-1/2 rounded-xl"> <option>Radio</option> <option>Texto</option> </select> </label>
+            <label class="flex w-full items-center"><span class="w-20">Texto:</span> <input class="w-3/4 border-0 border-b border-black" type="text"/></label>
+          </div>
+          <div class="w-4/5">
+            <h3 class="font-semibold">Questão</h3>
+            <label class="flex w-full items-center"><span class="w-20">Tipo:</span><select class="w-1/2 rounded-xl"> <option>Radio</option> <option>Texto</option> </select> </label>
+            <label class="flex w-full items-center"><span class="w-20">Texto:</span> <input class="w-3/4 border-0 border-b border-black" type="text"/></label>
+          </div>
+          <div class="w-4/5">
+            <h3 class="font-semibold">Questão</h3>
+            <label class="flex w-full items-center"><span class="w-20">Tipo:</span><select class="w-1/2 rounded-xl"> <option>Radio</option> <option>Texto</option> </select> </label>
+            <label class="flex w-full items-center"><span class="w-20">Texto:</span> <input class="w-3/4 border-0 border-b border-black" type="text"/></label>
+          </div>
+
+          <div class="flex justify-center">
+            <button class="bg-fuchsia-800 hover:bg-fuchsia-900 rounded-full"><i class="fa-solid fa-plus"></i></button>
+          </div>
+
+        </div>
+        <div class="flex justify-center">
+          <button class="bg-green-500 hover:bg-green-600 rounded-full px-12">Criar</button>
+        </div>
+      </form>
+    </dialog>
+    <%= javascript_include_tag('templates.js') %>
+  </body>
+</html>

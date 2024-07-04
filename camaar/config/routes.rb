@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get '/gerenciamento', to: 'pages#gerenciamento', as: 'page_gerenciamento'
   get '/gerenciamento/resultados', to: 'pages#resultados', as: 'page_resultados'
+  get '/gerenciamento/templates', to: 'pages#templates', as: 'page_templates'
   get '/avaliacoes', to: 'pages#avaliacoes', as: 'page_avaliacoes'
   get '/avaliacoes/:id', to: 'pages#questionarios', as: 'page_questionario'
 end
