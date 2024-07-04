@@ -11,16 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_07_03_184752) do
-  create_table "classes", force: :cascade do |t|
-    t.string "code"
-    t.string "name"
-    t.string "classCode"
-    t.string "semester"
-    t.string "time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "course_classes", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -34,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_03_184752) do
   create_table "memberships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "course_class_id", null: false
-    t.string "role"
+    t.string "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_class_id"], name: "index_memberships_on_course_class_id"

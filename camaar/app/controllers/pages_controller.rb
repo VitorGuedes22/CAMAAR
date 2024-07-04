@@ -13,8 +13,9 @@ class PagesController < ApplicationController
 
 
   def update_password
-    @user = User.find_by(usuario: params[:username])
+    Rails.logger.debug params.inspect  # Adicione esta linha para depuração
 
+    @user = User.find_by(usuario: params[:username])
     if @user.present? && params[:new_password] == params[:new_password_confirmation]
       if @user.update(senha: params[:new_password])
         redirect_to login_path, notice: 'Senha alterada com sucesso.'
@@ -64,21 +65,24 @@ class PagesController < ApplicationController
     @membros = params[:file_membros]
     @disciplinas = params[:file_disciplinas]
 
-    if @disciplinas
-      process_files(@disciplinas, method(:process_class_data))
+    if !@membros && !@disciplinas
+      flash[:error] = "Nenhum arquivo foi selecionado."
+    else
+      begin
+        if @membros
+          process_files(@membros, method(:process_json_data))
+        end
+
+        if @disciplinas
+          process_files(@disciplinas, method(:process_class_data))
+        end
+
+        flash[:success] = "Arquivos importados com sucesso."
+      rescue => e
+        flash[:error] = "Houve um erro ao importar os dados: #{e.message}"
+      end
     end
 
-    if @membros
-      process_files(@membros, method(:process_member_data))
-    end
-
-    flash[:success] = "Arquivos importados com sucesso."
-    respond_to do |format|
-      format.html { redirect_to users_path }
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("popup-upload", partial: "shared/flash_messages") }
-    end
-  rescue => e
-    flash[:error] = "Houve um erro ao importar os dados: #{e.message}"
     respond_to do |format|
       format.html { redirect_to users_path }
       format.turbo_stream { render turbo_stream: turbo_stream.replace("popup-upload", partial: "shared/flash_messages") }
@@ -99,6 +103,31 @@ class PagesController < ApplicationController
     end
   end
 
+  def process_json_data(data)
+    data.each do |entry|
+      docente = entry['docente']
+      dicente = entry['dicente']
+
+      process_user(docente) if docente
+      dicente.each { |d| process_user(d) } if dicente
+    end
+  end
+
+  def process_user(user_data)
+    user = User.find_or_initialize_by(usuario: user_data['usuario'])
+    user.assign_attributes(
+      nome: user_data['nome'],
+      curso: user_data['curso'],
+      matricula: user_data['matricula'],
+      formacao: user_data['formacao'],
+      ocupacao: user_data['ocupacao'],
+      email: user_data['email'],
+      senha: "a",
+      password: "a"
+    )
+    user.save!
+  end
+
   def process_class_data(data)
     data.each do |class_entry|
       class_info = class_entry['class']
@@ -113,38 +142,5 @@ class PagesController < ApplicationController
       course_class.save!
     end
   end
-
-  def process_member_data(data)
-    data.each do |class_entry|
-      course_class = CourseClass.find_by(code: class_entry['code'], classCode: class_entry['classCode'], semester: class_entry['semester'])
-
-      if course_class
-        docente = class_entry['docente']
-        dicente = class_entry['dicente']
-
-        process_user(docente, course_class, 'docente') if docente
-        dicente.each { |d| process_user(d, course_class, 'discente') } if dicente
-      else
-        Rails.logger.error "Course class not found for code: #{class_entry['code']}, classCode: #{class_entry['classCode']}, semester: #{class_entry['semester']}"
-      end
-    end
-  end
-
-  def process_user(user_data, course_class, role)
-    user = User.find_or_initialize_by(usuario: user_data['usuario'])
-    user.assign_attributes(
-      nome: user_data['nome'],
-      curso: user_data['curso'],
-      matricula: user_data['matricula'],
-      formacao: user_data['formacao'],
-      ocupacao: user_data['ocupacao'],
-      email: user_data['email'],
-    )
-    user.save!
-
-    Membership.find_or_create_by!(user: user, course_class: course_class, role: role)
-
-  end
-
 
 end

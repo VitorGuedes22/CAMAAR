@@ -17,9 +17,9 @@ RSpec.describe 'Importação de dados do SIGAA', type: :system do
 
     expect(find('#popup-upload')).to be_visible
 
-    # Simula a seleção de um arquivo não JSON para disciplins
+    # Simula a seleção de um arquivo não JSON
     # (vamos usar um arquivo de texto)
-    attach_file('file_input_disciplinas', Rails.root.join('textoTeste.txt'))
+    attach_file('file_input_membros', Rails.root.join('textoTeste.txt'))
     # Aguarda um pequeno intervalo para permitir que o alerta apareça
     sleep 1
     # Verifica se o alerta foi exibido corretamente
@@ -49,26 +49,17 @@ RSpec.describe 'Importação de dados do SIGAA', type: :system do
     expect(find('#popup-upload')).to be_visible
 
     # Simula a seleção de um arquivo JSON com formato invalido
-    attach_file('file_input_disciplinas', Rails.root.join('jsonErradoTeste.json'))
-    # Aguarda um pequeno intervalo para permitir que o alerta apareça
-    sleep 1
-    # Verifica se o alerta foi exibido corretamente
-    expect(page.driver.browser.switch_to.alert.text).to eq('O conteúdo do arquivo não está em formato JSON válido.')
-
-    # Aceita o alerta
-    page.driver.browser.switch_to.alert.accept
-
     attach_file('file_input_membros', Rails.root.join('jsonErradoTeste.json'))
     # Aguarda um pequeno intervalo para permitir que o alerta apareça
     sleep 1
     # Verifica se o alerta foi exibido corretamente
     expect(page.driver.browser.switch_to.alert.text).to eq('O conteúdo do arquivo não está em formato JSON válido.')
-
+    
   end
 
 
   # FELIZ
-  it 'Importar dados com sucesso a partir de um arquivo JSON' do
+  it 'Cadastrar usuarios com sucesso a partir de um arquivo JSON' do
     visit '/home'
     find('#menu-icon').click
     expect(find('#sidebar')).to be_visible
@@ -79,18 +70,15 @@ RSpec.describe 'Importação de dados do SIGAA', type: :system do
     expect(find('#popup-upload')).to be_visible
 
     # Simula a seleção de um arquivo JSON com formato VALIDO
-    attach_file('file_input_disciplinas', Rails.root.join('classes.json'))
+    attach_file('file_input_membros', Rails.root.join('class_members.json'))
 
-    # Verifica se o botão de envio está habilitado
-    #expect(page).to have_selector('.popup-btn[type=submit]:not([disabled])')
-
-    CourseClass.destroy_all
+    User.destroy_all
 
     find('.popup-btn[type=submit]').click
 
     sleep 5
 
-    expect(CourseClass.count).to be > 0
+    expect(User.count).to be > 0
 
   end
 

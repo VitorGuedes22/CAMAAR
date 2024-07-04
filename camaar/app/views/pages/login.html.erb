@@ -1,6 +1,5 @@
-<!-- app/views/pages/login.html.erb -->
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,11 +25,11 @@
       <h1>LOGIN</h1>
       <div>
         <label for="username">Usuário</label> <br />
-        <%= text_field_tag :username, nil, id: 'username', placeholder: 'Nº de matricula', required: true %>
+        <%= text_field_tag :username, nil, id: 'username', name: 'username', placeholder: 'Nº de matricula', required: true %>
       </div>
       <div class="senha_input">
         <label for="password">Senha</label> <br />
-        <%= password_field_tag :password, nil, id: 'senha_pass', placeholder: 'Senha' %>
+        <%= password_field_tag :password, nil, id: 'senha_pass', name: 'password', placeholder: 'Senha' %>
         <%= image_tag 'olho_aberto.svg', class: 'olho_aberto', id: 'olho_senha', onclick: 'mostrar_ocultar()' %>
       </div>
       <div>

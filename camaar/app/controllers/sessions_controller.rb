@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       flash[:alert] = "Usuário não encontrado. Por favor, verifique o usuário informado."
       redirect_to login_path
     elsif params[:password].blank? && user.senha.nil?
-      redirect_to recuperar_senha_path(usuario: params[:username])
+      redirect_to recuperar_senha_path(username: params[:username])
     elsif user.senha == params[:password]
       flash[:notice] = "Login realizado com sucesso!"
       session[:user_id] = user.id # Armazenar o ID do usuário na sessão
