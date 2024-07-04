@@ -139,8 +139,6 @@ class PagesController < ApplicationController
       formacao: user_data['formacao'],
       ocupacao: user_data['ocupacao'],
       email: user_data['email'],
-      senha: "a",
-      password: "a"
     )
     user.save!
 
