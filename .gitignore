@@ -2,3 +2,4 @@ camaar/tmp
 camaar/log
 .idea/
 *.pdf
+coverage/*

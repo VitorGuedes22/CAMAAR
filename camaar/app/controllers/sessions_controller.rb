@@ -18,23 +18,41 @@ class SessionsController < ApplicationController
     user = User.find_by(usuario: params[:username])
 
     if user.nil?
-      flash[:alert] = "Usuário não encontrado. Por favor, verifique o usuário informado."
-      redirect_to login_path
+      user_nil
     elsif params[:password].blank? && user.senha.nil?
-      redirect_to recuperar_senha_path(username: params[:username])
+      user_sem_senha
     elsif user.senha == params[:password]
-      flash[:notice] = "Login realizado com sucesso!"
-      session[:user_id] = user.id # Armazenar o ID do usuário na sessão
-      redirect_to home_path
+      senha_certa(user)
     else
-      flash[:alert] = "Senha incorreta. Por favor, verifique sua senha."
-      redirect_to login_path
+      senha_errada
     end
   end
 
   def destroy
     session[:user_id] = nil
     flash[:notice] = "Você saiu com sucesso."
+    redirect_to login_path
+  end
+
+  private
+
+  def user_nil
+    flash[:alert] = "Usuário não encontrado. Por favor, verifique o usuário informado."
+    redirect_to login_path
+  end
+
+  def user_sem_senha
+    redirect_to recuperar_senha_path(username: params[:username])
+  end
+
+  def senha_certa(user)
+    flash[:notice] = "Login realizado com sucesso!"
+    session[:user_id] = user.id # Armazenar o ID do usuário na sessão
+    redirect_to home_path
+  end
+
+  def senha_errada
+    flash[:alert] = "Senha incorreta. Por favor, verifique sua senha."
     redirect_to login_path
   end
 end

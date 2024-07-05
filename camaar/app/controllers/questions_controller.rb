@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   protect_from_forgery with: :null_session
 
-  def Home
+  def home
     @questions = Question.all
   end
 
