@@ -21,11 +21,9 @@ class TesteController < ApplicationController
     user = User.find_by(usuario: @username)
 
     if @password != @newPassword
-      flash[:alert] = 'Senha e confirmação de senha não coincidem'
-      redirect_to recuperar_senha_path
+      senhas_nao_coincidem
     elsif @password.length < 1
-      flash[:alert] = 'Senha não atende aos critérios de segurança'
-      redirect_to recuperar_senha_path
+      tamanho_senha
     else
       if user.update(password: @password)
         redirect_to login_path, notice: 'Definir senha com sucesso'
@@ -36,7 +34,16 @@ class TesteController < ApplicationController
     end
   end
 
+  private
+  def senhas_nao_coincidem
+    flash[:alert] = 'Senha e confirmação de senha não coincidem'
+    redirect_to recuperar_senha_path
+  end
 
+  def tamanho_senha
+    flash[:alert] = 'Senha não atende aos critérios de segurança'
+    redirect_to recuperar_senha_path
+  end
 end
 
 
