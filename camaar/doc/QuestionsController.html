@@ -54,6 +54,28 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-QuestionsController-label-QuestionsController">QuestionsController</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-QuestionsController-label-Filtros">Filtros</a>
+          <li>      <a href="#class-QuestionsController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas</a>
+          <li>      <a href="#class-QuestionsController-label-M-C3-A9todos+Privados">Métodos Privados</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +83,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  <p class="link">ApplicationController
 </div>
 
     
@@ -87,6 +109,27 @@
 
   <section class="description">
     
+<h2 id="class-QuestionsController-label-QuestionsController"><a href="QuestionsController.html"><code>QuestionsController</code></a><span><a href="#class-QuestionsController-label-QuestionsController">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Este controlador é responsável por gerenciar as ações relacionadas à model Question.</p>
+
+<h3 id="class-QuestionsController-label-Filtros">Filtros<span><a href="#class-QuestionsController-label-Filtros">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>protect_from_forgery with: :null_session</p>
+</li></ul>
+
+<h3 id="class-QuestionsController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas<span><a href="#class-QuestionsController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>home</p>
+</li><li>
+<p>create</p>
+</li></ul>
+
+<h3 id="class-QuestionsController-label-M-C3-A9todos+Privados">Métodos Privados<span><a href="#class-QuestionsController-label-M-C3-A9todos+Privados">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>question_params</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -110,10 +153,24 @@
         </div>
 
         <div class="method-description">
-          
+          <p>POST /questions</p>
+
+<p>Cria uma nova instância da model Question com os parâmetros fornecidos.</p>
+
+<h4 id="method-i-create-label-Par-C3-A2metros">Parâmetros<span><a href="#method-i-create-label-Par-C3-A2metros">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>question_params</code> - Parâmetros permitidos para a criação da model Question.</p>
+</li></ul>
+
+<h4 id="method-i-create-label-Exemplo+de+resposta">Exemplo de resposta<span><a href="#method-i-create-label-Exemplo+de+resposta">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>JSON: Retorna a nova instância criada com status :created.</p>
+</li><li>
+<p>JSON: Retorna erros de validação com status :unprocessable_entity.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-identifier">question</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">question_params</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">question</span>.<span class="ruby-identifier">save</span>
@@ -138,10 +195,19 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /questions/home</p>
+
+<p>Retorna todas as instâncias da model Question.</p>
+
+<h4 id="method-i-home-label-Exemplo+de+resposta">Exemplo de resposta<span><a href="#method-i-home-label-Exemplo+de+resposta">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>[
+  { id: 1, title: &#39;Question 1&#39;, question_type: &#39;Type 1&#39;, ... },
+  { id: 2, title: &#39;Question 2&#39;, question_type: &#39;Type 2&#39;, ... }
+]</pre>
 
           <div class="method-source-code" id="home-source">
-            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">home</span>
   <span class="ruby-ivar">@questions</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
