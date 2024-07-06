@@ -54,6 +54,29 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-Membership-label-Membership">Membership</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-Membership-label-Associa-C3-A7-C3-B5es">Associações</a>
+          <li>      <a href="#class-Membership-label-Valida-C3-A7-C3-B5es">Validações</a>
+          <li>      <a href="#class-Membership-label-Exemplos+de+uso">Exemplos de uso</a>
+          <li>      <a href="#class-Membership-label-C-C3-B3digo+de+exemplo">Código de exemplo</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +84,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
+  <p class="link">ApplicationRecord
 </div>
 
     
@@ -77,6 +100,38 @@
 
   <section class="description">
     
+<h2 id="class-Membership-label-Membership"><a href="Membership.html"><code>Membership</code></a><span><a href="#class-Membership-label-Membership">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A classe <a href="Membership.html"><code>Membership</code></a> representa a associação de um usuário a uma classe de curso na aplicação. Ela herda de ApplicationRecord e define associações com usuários e classes de curso, além de validar o papel do usuário na associação.</p>
+
+<h3 id="class-Membership-label-Associa-C3-A7-C3-B5es">Associações<span><a href="#class-Membership-label-Associa-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Pertence a um usuário (User).</p>
+</li><li>
+<p>Pertence a uma classe de curso (CourseClass).</p>
+</li></ul>
+
+<h3 id="class-Membership-label-Valida-C3-A7-C3-B5es">Validações<span><a href="#class-Membership-label-Valida-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Valida a presença do atributo papel (:role).</p>
+</li><li>
+<p>Valida a inclusão do papel em uma lista específica (‘docente’ ou ‘discente’).</p>
+</li></ul>
+
+<h3 id="class-Membership-label-Exemplos+de+uso">Exemplos de uso<span><a href="#class-Membership-label-Exemplos+de+uso">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Esta classe pode ser usada para gerenciar e validar as associações de usuários em classes de curso, garantindo que o papel do usuário seja correto.</p>
+
+<h3 id="class-Membership-label-C-C3-B3digo+de+exemplo">Código de exemplo<span><a href="#class-Membership-label-C-C3-B3digo+de+exemplo">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Membership</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationRecord</span>
+  <span class="ruby-identifier">belongs_to</span> <span class="ruby-value">:user</span>
+  <span class="ruby-identifier">belongs_to</span> <span class="ruby-value">:course_class</span>
+
+  <span class="ruby-identifier">validates</span> <span class="ruby-value">:role</span>, <span class="ruby-value">presence:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">inclusion:</span> { <span class="ruby-value">in:</span> <span class="ruby-node">%w[docente discente]</span> }
+<span class="ruby-keyword">end</span>
+</pre>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
