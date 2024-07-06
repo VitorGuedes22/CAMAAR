@@ -54,6 +54,29 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-Survey-label-Survey">Survey</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-Survey-label-Associa-C3-A7-C3-B5es">Associações</a>
+          <li>      <a href="#class-Survey-label-Aceita-C3-A7-C3-A3o+de+Atributos+Aninhados">Aceitação de Atributos Aninhados</a>
+          <li>      <a href="#class-Survey-label-Exemplos+de+uso">Exemplos de uso</a>
+          <li>      <a href="#class-Survey-label-C-C3-B3digo+de+exemplo">Código de exemplo</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +84,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
+  <p class="link">ApplicationRecord
 </div>
 
     
@@ -77,6 +100,32 @@
 
   <section class="description">
     
+<h2 id="class-Survey-label-Survey"><a href="Survey.html"><code>Survey</code></a><span><a href="#class-Survey-label-Survey">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A classe <a href="Survey.html"><code>Survey</code></a> representa um questionário na aplicação. Ela herda de ApplicationRecord e define associações com perguntas, permitindo a criação e destruição em cascata das mesmas.</p>
+
+<h3 id="class-Survey-label-Associa-C3-A7-C3-B5es">Associações<span><a href="#class-Survey-label-Associa-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Possui muitas perguntas (Question).</p>
+</li></ul>
+
+<h3 id="class-Survey-label-Aceita-C3-A7-C3-A3o+de+Atributos+Aninhados">Aceitação de Atributos Aninhados<span><a href="#class-Survey-label-Aceita-C3-A7-C3-A3o+de+Atributos+Aninhados">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Aceita atributos aninhados para perguntas, permitindo que perguntas sejam criadas junto com o questionário.</p>
+</li></ul>
+
+<h3 id="class-Survey-label-Exemplos+de+uso">Exemplos de uso<span><a href="#class-Survey-label-Exemplos+de+uso">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Esta classe pode ser usada para representar e gerenciar questionários completos, com várias perguntas associadas.</p>
+
+<h3 id="class-Survey-label-C-C3-B3digo+de+exemplo">Código de exemplo<span><a href="#class-Survey-label-C-C3-B3digo+de+exemplo">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Survey</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationRecord</span>
+  <span class="ruby-identifier">has_many</span> <span class="ruby-value">:questions</span>, <span class="ruby-value">dependent:</span> <span class="ruby-value">:destroy</span>
+  <span class="ruby-identifier">accepts_nested_attributes_for</span> <span class="ruby-value">:questions</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">

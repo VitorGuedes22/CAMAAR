@@ -1,1 +1,1 @@
-var search_data = {"index":{"searchIndex":["question"],"longSearchIndex":["question"],"info":[["Question","","Question.html","","<p>Question\n<p>A classe Question representa uma pergunta associada a um questionário na aplicação. Ela herda …\n"]]}}
+var search_data = {"index":{"searchIndex":["survey"],"longSearchIndex":["survey"],"info":[["Survey","","Survey.html","","<p>Survey\n<p>A classe Survey representa um questionário na aplicação. Ela herda de ApplicationRecord e define …\n"]]}}
