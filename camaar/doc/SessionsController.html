@@ -54,6 +54,27 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-SessionsController-label-SessionsController">SessionsController</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-SessionsController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas</a>
+          <li>      <a href="#class-SessionsController-label-M-C3-A9todos+Privados">Métodos Privados</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +82,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  <p class="link">ApplicationController
 </div>
 
     
@@ -89,6 +110,32 @@
 
   <section class="description">
     
+<h2 id="class-SessionsController-label-SessionsController"><a href="SessionsController.html"><code>SessionsController</code></a><span><a href="#class-SessionsController-label-SessionsController">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Este controlador é responsável por gerenciar as sessões de usuário, incluindo login, verificação de usuário e logout.</p>
+
+<h3 id="class-SessionsController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas<span><a href="#class-SessionsController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>new</p>
+</li><li>
+<p><a href="SessionsController.html#method-i-verify_user"><code>verify_user</code></a></p>
+</li><li>
+<p>create</p>
+</li><li>
+<p>destroy</p>
+</li></ul>
+
+<h3 id="class-SessionsController-label-M-C3-A9todos+Privados">Métodos Privados<span><a href="#class-SessionsController-label-M-C3-A9todos+Privados">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>user_nil</p>
+</li><li>
+<p>user_sem_senha</p>
+</li><li>
+<p>senha_certa</p>
+</li><li>
+<p>senha_errada</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -112,10 +159,28 @@
         </div>
 
         <div class="method-description">
-          
+          <p>POST /login</p>
+
+<p>Autentica o usuário com base no nome de usuário e senha fornecidos.</p>
+
+<h4 id="method-i-create-label-Par-C3-A2metros">Parâmetros<span><a href="#method-i-create-label-Par-C3-A2metros">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params[:username]</code> - O nome de usuário do usuário.</p>
+</li><li>
+<p><code>params[:password]</code> - A senha do usuário.</p>
+</li></ul>
+
+<h4 id="method-i-create-label-Exemplo+de+resposta">Exemplo de resposta<span><a href="#method-i-create-label-Exemplo+de+resposta">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Redireciona para a home page se o login for bem-sucedido.</p>
+</li><li>
+<p>Redireciona para a página de recuperação de senha se a senha estiver em branco e o usuário não tiver senha.</p>
+</li><li>
+<p>Redireciona para a página de login com uma mensagem de erro se o nome de usuário ou a senha estiver incorreto.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 17</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">usuario:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>])
 
@@ -145,10 +210,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>DELETE /logout</p>
+
+<p>Encerra a sessão do usuário atual.</p>
+
+<h4 id="method-i-destroy-label-Exemplo+de+resposta">Exemplo de resposta<span><a href="#method-i-destroy-label-Exemplo+de+resposta">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Redireciona para a página de login com uma mensagem de sucesso.</p>
+</li></ul>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 81</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>] = <span class="ruby-keyword">nil</span>
   <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Você saiu com sucesso.&quot;</span>
@@ -170,10 +242,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /login</p>
+
+<p>Renderiza a página de login.</p>
+
+<h4 id="method-i-new-label-Exemplo">Exemplo<span><a href="#method-i-new-label-Exemplo">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># Exibe a página login.html.erb</span>
+</pre>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-comment"># Ação para renderizar a página de login (login.html.erb)</span>
 <span class="ruby-keyword">end</span></pre>
@@ -193,10 +272,24 @@
         </div>
 
         <div class="method-description">
-          
+          <p>POST /verify_user</p>
+
+<p>Verifica se um usuário existe com base no nome de usuário fornecido.</p>
+
+<h4 id="method-i-verify_user-label-Par-C3-A2metros">Parâmetros<span><a href="#method-i-verify_user-label-Par-C3-A2metros">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params[:username]</code> - O nome de usuário a ser verificado.</p>
+</li></ul>
+
+<h4 id="method-i-verify_user-label-Exemplo+de+resposta">Exemplo de resposta<span><a href="#method-i-verify_user-label-Exemplo+de+resposta">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>JSON: { found: true, url: ‘/recuperar_senha?username=username’ }</p>
+</li><li>
+<p>JSON: { found: false, message: ‘Usuário não encontrado’ }</p>
+</li></ul>
 
           <div class="method-source-code" id="verify_user-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">verify_user</span>
   <span class="ruby-identifier">username</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>]
   <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">usuario:</span> <span class="ruby-identifier">username</span>)
