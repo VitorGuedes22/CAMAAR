@@ -57,6 +57,12 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 end
 
+# Gema para teste de Complexidade ciclomática
+gem "reek", require: false
+
+# Gema para teste de ABC Score
+gem "rubycritic", require: false
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"

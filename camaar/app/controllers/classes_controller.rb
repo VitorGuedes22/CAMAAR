@@ -24,26 +24,20 @@ class ClassesController < ApplicationController
     @class = Class.new(class_params)
 
     respond_to do |format|
-      if @class.save
-        format.html { redirect_to class_url(@class), notice: "Class was successfully created." }
-        format.json { render :show, status: :created, location: @class }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @class.errors, status: :unprocessable_entity }
-      end
+      html = format.html
+      json = format.json
+
+      save_class(@class, html, json)
     end
   end
 
   # PATCH/PUT /classes/1 or /classes/1.json
   def update
     respond_to do |format|
-      if @class.update(class_params)
-        format.html { redirect_to class_url(@class), notice: "Class was successfully updated." }
-        format.json { render :show, status: :ok, location: @class }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @class.errors, status: :unprocessable_entity }
-      end
+      html = format.html
+      json = format.json
+
+      update_class(@class, html, json)
     end
   end
 
@@ -67,4 +61,24 @@ class ClassesController < ApplicationController
     def class_params
       params.require(:class).permit(:code, :name, :classCode, :semester, :time)
     end
+
+    def save_class(classe, html, json)
+      if classe.save
+        html { redirect_to class_url(classe), notice: "Class was successfully created." }
+        json { render :show, status: :created, location: classe }
+      else
+        html { render :new, status: :unprocessable_entity }
+        json { render json: classe.errors, status: :unprocessable_entity }
+      end
+    end
+
+  def update_class(classe, html, json)
+    if classe.update(class_params)
+      html { redirect_to class_url(classe), notice: "Class was successfully updated." }
+      json { render :show, status: :ok, location: classe }
+    else
+      html { render :edit, status: :unprocessable_entity }
+      json { render json: classe.errors, status: :unprocessable_entity }
+    end
+  end
 end
