@@ -54,6 +54,28 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-Option-label-Option">Option</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-Option-label-Associa-C3-A7-C3-B5es">Associações</a>
+          <li>      <a href="#class-Option-label-Exemplos+de+uso">Exemplos de uso</a>
+          <li>      <a href="#class-Option-label-C-C3-B3digo+de+exemplo">Código de exemplo</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +83,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
+  <p class="link">ApplicationRecord
 </div>
 
     
@@ -77,6 +99,26 @@
 
   <section class="description">
     
+<h2 id="class-Option-label-Option"><a href="Option.html"><code>Option</code></a><span><a href="#class-Option-label-Option">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A classe <a href="Option.html"><code>Option</code></a> representa uma opção associada a uma pergunta na aplicação. Ela herda de ApplicationRecord e define uma associação de pertencimento a uma pergunta.</p>
+
+<h3 id="class-Option-label-Associa-C3-A7-C3-B5es">Associações<span><a href="#class-Option-label-Associa-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Pertence a uma pergunta (Question).</p>
+</li></ul>
+
+<h3 id="class-Option-label-Exemplos+de+uso">Exemplos de uso<span><a href="#class-Option-label-Exemplos+de+uso">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Esta classe pode ser usada para representar opções disponíveis em perguntas de questionários ou pesquisas.</p>
+
+<h3 id="class-Option-label-C-C3-B3digo+de+exemplo">Código de exemplo<span><a href="#class-Option-label-C-C3-B3digo+de+exemplo">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Option</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationRecord</span>
+  <span class="ruby-identifier">belongs_to</span> <span class="ruby-value">:question</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">

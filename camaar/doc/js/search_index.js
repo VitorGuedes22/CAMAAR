@@ -1,1 +1,1 @@
-var search_data = {"index":{"searchIndex":["membership"],"longSearchIndex":["membership"],"info":[["Membership","","Membership.html","","<p>Membership\n<p>A classe Membership representa a associação de um usuário a uma classe de curso na aplicação. …\n"]]}}
+var search_data = {"index":{"searchIndex":["option"],"longSearchIndex":["option"],"info":[["Option","","Option.html","","<p>Option\n<p>A classe Option representa uma opção associada a uma pergunta na aplicação. Ela herda de ApplicationRecord …\n"]]}}
