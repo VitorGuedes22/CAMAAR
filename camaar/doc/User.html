@@ -54,6 +54,28 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-User-label-User">User</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-User-label-Associa-C3-A7-C3-B5es">Associações</a>
+          <li>      <a href="#class-User-label-Valida-C3-A7-C3-B5es">Validações</a>
+          <li>      <a href="#class-User-label-C-C3-B3digo+de+exemplo">Código de exemplo</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +83,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
+  <p class="link">ApplicationRecord
 </div>
 
     
@@ -77,6 +99,35 @@
 
   <section class="description">
     
+<h2 id="class-User-label-User"><a href="User.html"><code>User</code></a><span><a href="#class-User-label-User">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A classe <a href="User.html"><code>User</code></a> representa um usuário na aplicação. Ela herda de ApplicationRecord e define associações com classes de curso através de associações de adesão (Membership). Além disso, utiliza has_secure_password para criptografar e validar a senha do usuário.</p>
+
+<h3 id="class-User-label-Associa-C3-A7-C3-B5es">Associações<span><a href="#class-User-label-Associa-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Possui muitas associações com classes de curso através de membros (Membership).</p>
+</li></ul>
+
+<h3 id="class-User-label-Valida-C3-A7-C3-B5es">Validações<span><a href="#class-User-label-Valida-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Valida a presença e a unicidade do atributo usuário (:usuario).</p>
+</li><li>
+<p>Valida a presença da senha (:password) apenas na atualização do usuário, permitindo nulo durante a criação.</p>
+</li></ul>
+
+<h3 id="class-User-label-C-C3-B3digo+de+exemplo">Código de exemplo<span><a href="#class-User-label-C-C3-B3digo+de+exemplo">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationRecord</span>
+  <span class="ruby-identifier">has_many</span> <span class="ruby-value">:memberships</span>
+  <span class="ruby-identifier">has_many</span> <span class="ruby-value">:course_classes</span>, <span class="ruby-value">through:</span> <span class="ruby-value">:memberships</span>
+
+  <span class="ruby-identifier">has_secure_password</span>(<span class="ruby-value">validations:</span> <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-identifier">validates</span> <span class="ruby-value">:usuario</span>, <span class="ruby-value">presence:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">uniqueness:</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">validates</span> <span class="ruby-value">:password</span>, <span class="ruby-value">presence:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">on:</span> <span class="ruby-value">:update</span>, <span class="ruby-value">allow_nil:</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
