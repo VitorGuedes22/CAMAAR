@@ -1,1 +1,1 @@
-var search_data = {"index":{"searchIndex":["applicationrecord"],"longSearchIndex":["applicationrecord"],"info":[["ApplicationRecord","","ApplicationRecord.html","","<p>ApplicationRecord\n<p>A classe ApplicationRecord é a superclasse base para todos os modelos do ActiveRecord …\n"]]}}
+var search_data = {"index":{"searchIndex":["courseclass"],"longSearchIndex":["courseclass"],"info":[["CourseClass","","CourseClass.html","","<p>CourseClass\n<p>A classe CourseClass representa uma classe de curso na aplicação. Ela herda de ApplicationRecord …\n"]]}}

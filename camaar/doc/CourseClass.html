@@ -54,6 +54,28 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-CourseClass-label-CourseClass">CourseClass</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-CourseClass-label-Associa-C3-A7-C3-B5es">Associações</a>
+          <li>      <a href="#class-CourseClass-label-Exemplos+de+uso">Exemplos de uso</a>
+          <li>      <a href="#class-CourseClass-label-C-C3-B3digo+de+exemplo">Código de exemplo</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +83,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
+  <p class="link">ApplicationRecord
 </div>
 
     
@@ -77,6 +99,29 @@
 
   <section class="description">
     
+<h2 id="class-CourseClass-label-CourseClass"><a href="CourseClass.html"><code>CourseClass</code></a><span><a href="#class-CourseClass-label-CourseClass">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A classe <a href="CourseClass.html"><code>CourseClass</code></a> representa uma classe de curso na aplicação. Ela herda de ApplicationRecord e define associações com outras entidades.</p>
+
+<h3 id="class-CourseClass-label-Associa-C3-A7-C3-B5es">Associações<span><a href="#class-CourseClass-label-Associa-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Possui muitas associações com membros (Membership).</p>
+</li><li>
+<p>Possui muitos usuários através de membros (Membership).</p>
+</li></ul>
+
+<h3 id="class-CourseClass-label-Exemplos+de+uso">Exemplos de uso<span><a href="#class-CourseClass-label-Exemplos+de+uso">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Esta classe pode ser usada para gerenciar e associar usuários a uma classe de curso específica.</p>
+
+<h3 id="class-CourseClass-label-C-C3-B3digo+de+exemplo">Código de exemplo<span><a href="#class-CourseClass-label-C-C3-B3digo+de+exemplo">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">CourseClass</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationRecord</span>
+  <span class="ruby-identifier">has_many</span> <span class="ruby-value">:memberships</span>
+  <span class="ruby-identifier">has_many</span> <span class="ruby-value">:users</span>, <span class="ruby-value">through:</span> <span class="ruby-value">:memberships</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
