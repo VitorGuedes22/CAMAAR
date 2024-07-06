@@ -54,6 +54,27 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-UsersController-label-UsersController">UsersController</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-UsersController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas</a>
+          <li>      <a href="#class-UsersController-label-M-C3-A9todos+Privados">Métodos Privados</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +82,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  <p class="link">ApplicationController
 </div>
 
     
@@ -86,7 +107,27 @@
 
   <section class="description">
     
-<p>app/controllers/users_controller.rb</p>
+<h2 id="class-UsersController-label-UsersController"><a href="UsersController.html"><code>UsersController</code></a><span><a href="#class-UsersController-label-UsersController">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Este controlador é responsável por importar dados de membros e processar usuários.</p>
+
+<h3 id="class-UsersController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas<span><a href="#class-UsersController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="UsersController.html#method-i-importar_dados"><code>importar_dados</code></a></p>
+</li></ul>
+
+<h3 id="class-UsersController-label-M-C3-A9todos+Privados">Métodos Privados<span><a href="#class-UsersController-label-M-C3-A9todos+Privados">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>process_json_data</p>
+</li><li>
+<p>process_user</p>
+</li><li>
+<p>verifica_json</p>
+</li><li>
+<p>conta_usuarios</p>
+</li><li>
+<p>resposta_requisicao</p>
+</li></ul>
 
   </section>
 
@@ -111,10 +152,24 @@
         </div>
 
         <div class="method-description">
-          
+          <p>POST /importar_dados</p>
+
+<p>Importa dados de membros a partir de arquivos JSON e atualiza a base de dados com novos usuários.</p>
+
+<h4 id="method-i-importar_dados-label-Par-C3-A2metros">Parâmetros<span><a href="#method-i-importar_dados-label-Par-C3-A2metros">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params[:file_membros]</code> - O arquivo JSON contendo os dados dos membros a serem importados.</p>
+</li></ul>
+
+<h4 id="method-i-importar_dados-label-Exemplo+de+resposta">Exemplo de resposta<span><a href="#method-i-importar_dados-label-Exemplo+de+resposta">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Calcula e exibe a quantidade de novos usuários importados.</p>
+</li><li>
+<p>Exibe uma mensagem de erro se nenhum arquivo for selecionado ou se houver um problema na importação.</p>
+</li></ul>
 
           <div class="method-source-code" id="importar_dados-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">importar_dados</span>
   <span class="ruby-ivar">@membros</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:file_membros</span>]
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@membros</span>
@@ -127,10 +182,9 @@
 
       <span class="ruby-comment"># Calcula a quantidade de usuários depois de importar</span>
       <span class="ruby-identifier">users_after_import</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">count</span>
-      <span class="ruby-comment"># Calcula a diferença de usuários antes e depois da importação</span>
-      <span class="ruby-identifier">new_users_count</span> = <span class="ruby-identifier">users_after_import</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">users_before_import</span>
 
-      <span class="ruby-identifier">conta_usuarios</span>(<span class="ruby-identifier">new_users_count</span>)
+      <span class="ruby-comment"># Calcula a diferença de usuários antes e depois da importação</span>
+      <span class="ruby-identifier">conta_usuarios</span>(<span class="ruby-identifier">users_after_import</span>, <span class="ruby-identifier">users_before_import</span>)
     <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-node">&quot;Houve um erro ao importar os membros: #{e.message}&quot;</span>
     <span class="ruby-keyword">end</span>
