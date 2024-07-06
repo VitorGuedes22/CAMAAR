@@ -54,6 +54,27 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-ApplicationRecord-label-ApplicationRecord">ApplicationRecord</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-ApplicationRecord-label-Exemplos+de+uso">Exemplos de uso</a>
+          <li>      <a href="#class-ApplicationRecord-label-C-C3-B3digo+de+exemplo">Código de exemplo</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -77,6 +98,21 @@
 
   <section class="description">
     
+<h2 id="class-ApplicationRecord-label-ApplicationRecord"><a href="ApplicationRecord.html"><code>ApplicationRecord</code></a><span><a href="#class-ApplicationRecord-label-ApplicationRecord">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A classe <a href="ApplicationRecord.html"><code>ApplicationRecord</code></a> é a superclasse base para todos os modelos do ActiveRecord na aplicação. Ela herda de ActiveRecord::Base e é definida como uma classe abstrata primária, o que significa que não deve ser instanciada diretamente, mas deve ser herdada por outros modelos da aplicação.</p>
+
+<h3 id="class-ApplicationRecord-label-Exemplos+de+uso">Exemplos de uso<span><a href="#class-ApplicationRecord-label-Exemplos+de+uso">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Todos os modelos do ActiveRecord na aplicação devem herdar de <a href="ApplicationRecord.html"><code>ApplicationRecord</code></a>.</p>
+
+<h3 id="class-ApplicationRecord-label-C-C3-B3digo+de+exemplo">Código de exemplo<span><a href="#class-ApplicationRecord-label-C-C3-B3digo+de+exemplo">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationRecord</span>
+  <span class="ruby-comment"># Código do modelo User</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
