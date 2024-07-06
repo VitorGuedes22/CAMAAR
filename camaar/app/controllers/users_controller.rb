@@ -4,28 +4,18 @@ class UsersController < ApplicationController
     @membros = params[:file_membros]
     if @membros
       begin
+        # Calcula a quantidade de usuários antes de importar
         users_before_import = User.count
 
-        # Verifique se @membros é um único arquivo ou uma lista de arquivos
-        if @membros.is_a?(Array)
-          @membros.each do |file|
-            json_data = JSON.parse(file.read)
-            process_json_data(json_data)
-          end
-        else
-          # Se for apenas um único arquivo
-          json_data = JSON.parse(@membros.read)
-          process_json_data(json_data)
-        end
+        # Função que verifica se o json é um único arquivo ou uma lista
+        verifica_json(@membros)
 
+        # Calcula a quantidade de usuários depois de importar
         users_after_import = User.count
+        # Calcula a diferença de usuários antes e depois da importação
         new_users_count = users_after_import - users_before_import
 
-        if new_users_count > 0
-          flash[:success] = "Membros foram importados com sucesso. Total de novos usuários: #{new_users_count}."
-        else
-          flash[:error] = "Nenhum novo usuário foi importado."
-        end
+        conta_usuarios(new_users_count)
       rescue => e
         flash[:error] = "Houve um erro ao importar os membros: #{e.message}"
       end
@@ -33,10 +23,7 @@ class UsersController < ApplicationController
       flash[:error] = "Nenhum arquivo foi selecionado."
     end
 
-    respond_to do |format|
-      format.html { redirect_to users_path }
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("popup-upload", partial: "shared/flash_messages") }
-    end
+    resposta_requisicao
   end
 
   private
@@ -67,5 +54,36 @@ class UsersController < ApplicationController
       password: "a"
     )
     user.save!
+  end
+
+  private
+
+  def verifica_json(membros)
+    # Verifica se o json é uma lista de arquivos
+    if membros.is_a?(Array)
+      membros.each do |file|
+        json_data = JSON.parse(file.read)
+        process_json_data(json_data)
+      end
+    else
+      # Se for apenas um único arquivo
+      json_data = JSON.parse(membros.read)
+      process_json_data(json_data)
+    end
+  end
+
+  def conta_usuarios(new_users_count)
+    if new_users_count > 0
+      flash[:success] = "Membros foram importados com sucesso. Total de novos usuários: #{new_users_count}."
+    else
+      flash[:error] = "Nenhum novo usuário foi importado."
+    end
+  end
+
+  def resposta_requisicao
+    respond_to do |format|
+      format.html { redirect_to users_path }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("popup-upload", partial: "shared/flash_messages") }
+    end
   end
 end
