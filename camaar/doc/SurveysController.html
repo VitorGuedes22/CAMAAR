@@ -54,6 +54,28 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-SurveysController-label-SurveysController">SurveysController</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-SurveysController-label-Filtros">Filtros</a>
+          <li>      <a href="#class-SurveysController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas</a>
+          <li>      <a href="#class-SurveysController-label-M-C3-A9todos+Privados">Métodos Privados</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +83,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  <p class="link">ApplicationController
 </div>
 
     
@@ -86,6 +108,25 @@
 
   <section class="description">
     
+<h2 id="class-SurveysController-label-SurveysController"><a href="SurveysController.html"><code>SurveysController</code></a><span><a href="#class-SurveysController-label-SurveysController">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Este controlador é responsável por gerenciar as ações relacionadas à model Survey.</p>
+
+<h3 id="class-SurveysController-label-Filtros">Filtros<span><a href="#class-SurveysController-label-Filtros">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>protect_from_forgery with: :null_session</p>
+</li></ul>
+
+<h3 id="class-SurveysController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas<span><a href="#class-SurveysController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>create</p>
+</li></ul>
+
+<h3 id="class-SurveysController-label-M-C3-A9todos+Privados">Métodos Privados<span><a href="#class-SurveysController-label-M-C3-A9todos+Privados">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>survey_params</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -109,10 +150,24 @@
         </div>
 
         <div class="method-description">
-          
+          <p>POST /surveys</p>
+
+<p>Cria uma nova instância da model Survey com os parâmetros fornecidos.</p>
+
+<h4 id="method-i-create-label-Par-C3-A2metros">Parâmetros<span><a href="#method-i-create-label-Par-C3-A2metros">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params[:survey]</code> - Parâmetros permitidos para a criação da model Survey, incluindo perguntas e opções.</p>
+</li></ul>
+
+<h4 id="method-i-create-label-Exemplo+de+resposta">Exemplo de resposta<span><a href="#method-i-create-label-Exemplo+de+resposta">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>JSON: Retorna a nova instância criada com status :created.</p>
+</li><li>
+<p>JSON: Retorna erros de validação com status :unprocessable_entity.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-identifier">survey</span> = <span class="ruby-constant">Survey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">survey_params</span>)
 
