@@ -122,11 +122,9 @@
   <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">usuario:</span> <span class="ruby-ivar">@username</span>)
 
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@password</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@newPassword</span>
-    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:alert</span>] = <span class="ruby-string">&#39;Senha e confirmação de senha não coincidem&#39;</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">recuperar_senha_path</span>
+    <span class="ruby-identifier">senhas_nao_coincidem</span>
   <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>
-    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:alert</span>] = <span class="ruby-string">&#39;Senha não atende aos critérios de segurança&#39;</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">recuperar_senha_path</span>
+    <span class="ruby-identifier">tamanho_senha</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">password:</span> <span class="ruby-ivar">@password</span>)
       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">login_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Definir senha com sucesso&#39;</span>

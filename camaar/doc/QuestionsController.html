@@ -72,8 +72,8 @@
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    <li ><a href="#method-i-Home">#Home</a>
     <li ><a href="#method-i-create">#create</a>
+    <li ><a href="#method-i-home">#home</a>
   </ul>
 </div>
 
@@ -100,29 +100,6 @@
          <h3>Public Instance Methods</h3>
        </header>
 
-      <div id="method-i-Home" class="method-detail ">
-        <div class="method-header">
-          <div class="method-heading">
-            <span class="method-name">Home</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-        </div>
-
-        <div class="method-description">
-          
-
-          <div class="method-source-code" id="Home-source">
-            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 4</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Home</span>
-  <span class="ruby-ivar">@questions</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier ruby-title">all</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-        </div>
-
-
-      </div>
-
       <div id="method-i-create" class="method-detail ">
         <div class="method-header">
           <div class="method-heading">
@@ -144,6 +121,29 @@
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> { <span class="ruby-value">status:</span> <span class="ruby-string">&#39;error&#39;</span>, <span class="ruby-value">errors:</span> <span class="ruby-identifier">question</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">full_messages</span> }, <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_entity</span>
   <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-home" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">home</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="home-source">
+            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">home</span>
+  <span class="ruby-ivar">@questions</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>

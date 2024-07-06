@@ -54,6 +54,27 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#class-PagesController-label-PagesController">PagesController</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#class-PagesController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas</a>
+          <li>      <a href="#class-PagesController-label-M-C3-A9todos+Privados">Métodos Privados</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -61,7 +82,7 @@
 <div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  <p class="link">ApplicationController
 </div>
 
     
@@ -72,12 +93,16 @@
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
+    <li ><a href="#method-i-avaliacoes">#avaliacoes</a>
     <li ><a href="#method-i-criar_templete">#criar_templete</a>
+    <li ><a href="#method-i-gerenciamento">#gerenciamento</a>
     <li ><a href="#method-i-home">#home</a>
     <li ><a href="#method-i-importar_dados">#importar_dados</a>
     <li ><a href="#method-i-login">#login</a>
+    <li ><a href="#method-i-questionarios">#questionarios</a>
     <li ><a href="#method-i-recuperar_senha">#recuperar_senha</a>
     <li ><a href="#method-i-resultados">#resultados</a>
+    <li ><a href="#method-i-templates">#templates</a>
     <li ><a href="#method-i-update_password">#update_password</a>
   </ul>
 </div>
@@ -92,6 +117,46 @@
 
   <section class="description">
     
+<h2 id="class-PagesController-label-PagesController"><a href="PagesController.html"><code>PagesController</code></a><span><a href="#class-PagesController-label-PagesController">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Este controlador é responsável por gerenciar diversas ações de páginas, como login, home, recuperação de senha, criação de template, resultados, avaliações, questionários, gerenciamento, templates e importação de dados.</p>
+
+<h3 id="class-PagesController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">Ações Públicas<span><a href="#class-PagesController-label-A-C3-A7-C3-B5es+P-C3-BAblicas">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>login</p>
+</li><li>
+<p>home</p>
+</li><li>
+<p><a href="PagesController.html#method-i-recuperar_senha"><code>recuperar_senha</code></a></p>
+</li><li>
+<p><a href="PagesController.html#method-i-update_password"><code>update_password</code></a></p>
+</li><li>
+<p><a href="PagesController.html#method-i-criar_templete"><code>criar_templete</code></a></p>
+</li><li>
+<p>resultados</p>
+</li><li>
+<p>avaliacoes</p>
+</li><li>
+<p>questionarios</p>
+</li><li>
+<p>gerenciamento</p>
+</li><li>
+<p>templates</p>
+</li><li>
+<p><a href="PagesController.html#method-i-importar_dados"><code>importar_dados</code></a></p>
+</li></ul>
+
+<h3 id="class-PagesController-label-M-C3-A9todos+Privados">Métodos Privados<span><a href="#class-PagesController-label-M-C3-A9todos+Privados">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>process_files</p>
+</li><li>
+<p>process_json_data</p>
+</li><li>
+<p>process_user</p>
+</li><li>
+<p>process_class_data</p>
+</li></ul>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -105,6 +170,30 @@
          <h3>Public Instance Methods</h3>
        </header>
 
+      <div id="method-i-avaliacoes" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">avaliacoes</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Renderiza a view de avaliações e define o breadcrumb e o valor</p>
+
+          <div class="method-source-code" id="avaliacoes-source">
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">avaliacoes</span>
+  <span class="ruby-ivar">@breadcrumb</span> = <span class="ruby-string">&#39;Avaliação&#39;</span>
+  <span class="ruby-ivar">@valor</span> = [<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-value">7</span>,<span class="ruby-value">8</span>,<span class="ruby-value">9</span>,<span class="ruby-value">10</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
       <div id="method-i-criar_templete" class="method-detail ">
         <div class="method-header">
           <div class="method-heading">
@@ -115,12 +204,34 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Renderiza a view de criação de template</p>
 
           <div class="method-source-code" id="criar_templete-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">criar_templete</span>
-  <span class="ruby-comment"># Renderiza a view de criação de templete</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-gerenciamento" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">gerenciamento</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Renderiza a view de gerenciamento e define o breadcrumb</p>
+
+          <div class="method-source-code" id="gerenciamento-source">
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gerenciamento</span>
+  <span class="ruby-ivar">@breadcrumb</span> = <span class="ruby-string">&quot;Gerenciamento&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -138,12 +249,11 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Renderiza a view de home</p>
 
           <div class="method-source-code" id="home-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">home</span>
-  <span class="ruby-comment"># Renderiza a view de home</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -161,19 +271,38 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Importa dados de membros e disciplinas a partir de arquivos JSON</p>
+
+<p>Se nenhum arquivo for selecionado, define uma mensagem de erro. Tenta processar os arquivos selecionados e define uma mensagem de sucesso ou erro.</p>
+
+<h4 id="method-i-importar_dados-label-Par-C3-A2metros">Parâmetros<span><a href="#method-i-importar_dados-label-Par-C3-A2metros">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params[:file_membros]</code> - Arquivo de membros a ser importado.</p>
+</li><li>
+<p><code>params[:file_disciplinas]</code> - Arquivo de disciplinas a ser importado.</p>
+</li></ul>
 
           <div class="method-source-code" id="importar_dados-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 103</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">importar_dados</span>
-  <span class="ruby-comment"># Lógica para lidar com o arquivo importado</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:file</span>].<span class="ruby-identifier">present?</span>  <span class="ruby-comment"># Assumindo que você está enviando um arquivo com o nome &#39;file&#39;</span>
-    <span class="ruby-identifier">uploaded_file</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:file</span>]
-    <span class="ruby-comment"># Aqui você pode fazer o que for necessário com o arquivo, como salvar no servidor, processar, etc.</span>
-    <span class="ruby-identifier">render</span> <span class="ruby-value">plain:</span> <span class="ruby-node">&quot;Arquivo &#39;#{uploaded_file.original_filename}&#39; importado com sucesso!&quot;</span>
+  <span class="ruby-ivar">@membros</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:file_membros</span>]
+  <span class="ruby-ivar">@disciplinas</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:file_disciplinas</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@membros</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@disciplinas</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Nenhum arquivo foi selecionado.&quot;</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">render</span> <span class="ruby-value">plain:</span> <span class="ruby-string">&quot;Nenhum arquivo selecionado para importar.&quot;</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">verifica_membros</span>(<span class="ruby-ivar">@membros</span>)
+
+      <span class="ruby-identifier">verifica_disciplinas</span>(<span class="ruby-ivar">@disciplinas</span>)
+
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&quot;Arquivos importados com sucesso.&quot;</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-node">&quot;Houve um erro ao importar os dados: #{e.message}&quot;</span>
+    <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">resposta_requisicao</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -191,12 +320,38 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Renderiza a view de login</p>
 
           <div class="method-source-code" id="login-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">login</span>
-  <span class="ruby-comment"># Renderiza a view de login</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-questionarios" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">questionarios</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Renderiza a view de questionários e define o breadcrumb, pergunta, matéria e semestre</p>
+
+          <div class="method-source-code" id="questionarios-source">
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">questionarios</span>
+  <span class="ruby-ivar">@breadcrumb</span> = <span class="ruby-string">&quot;Avaliação - Nome da Matéria - Semestre&quot;</span>
+  <span class="ruby-ivar">@pergunta</span> = <span class="ruby-string">&quot;Pergunta&quot;</span>
+  <span class="ruby-ivar">@materia</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:materia</span>]
+  <span class="ruby-ivar">@semestre</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:semestre</span>]
+  <span class="ruby-ivar">@text_pergunta</span> = <span class="ruby-string">&quot;Pergunta&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -214,10 +369,10 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Renderiza a view de recuperação de senha e define o @username</p>
 
           <div class="method-source-code" id="recuperar_senha-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recuperar_senha</span>
   <span class="ruby-ivar">@username</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -237,12 +392,37 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Renderiza a view de resultados e define o breadcrumb e o valor</p>
 
           <div class="method-source-code" id="resultados-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resultados</span>
+  <span class="ruby-ivar">@breadcrumb</span> = <span class="ruby-string">&quot;Gerenciamento - Resultados&quot;</span>
   <span class="ruby-ivar">@valor</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>, <span class="ruby-value">7</span>, <span class="ruby-value">8</span>, <span class="ruby-value">9</span>, <span class="ruby-value">10</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-templates" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">templates</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Renderiza a view de templates e define o breadcrumb e o valor</p>
+
+          <div class="method-source-code" id="templates-source">
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">templates</span>
+  <span class="ruby-ivar">@breadcrumb</span> = <span class="ruby-string">&quot;Gerenciamento - Templates&quot;</span>
+  <span class="ruby-ivar">@valor</span> = [<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>]
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -260,13 +440,16 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Atualiza a senha do usuário com base nos parâmetros fornecidos</p>
+
+<p>Se a atualização for bem-sucedida, redireciona para a página de login com uma mensagem de sucesso. Caso contrário, renderiza a view de recuperação de senha com uma mensagem de erro.</p>
 
           <div class="method-source-code" id="update_password-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update_password</span>
-  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">usuario:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>])
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">inspect</span>  <span class="ruby-comment"># Adicione esta linha para depuração</span>
 
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">usuario:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:username</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:new_password</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:new_password_confirmation</span>]
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">senha:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:new_password</span>])
       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">login_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Senha alterada com sucesso.&#39;</span>
